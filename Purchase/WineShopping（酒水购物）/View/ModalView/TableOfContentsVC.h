@@ -13,7 +13,7 @@
 @interface TableOfContentsVC : UIViewController
 
 @property (strong ,nonatomic) NSMutableArray *array;
-
+@property (strong ,nonatomic) UIView *topView;
 @property (nonatomic , copy) void (^TableOfContentsBlock)();
 @property (nonatomic , copy) void (^topLabelBlock)(NSMutableArray *array);
 @property (nonatomic , copy) void (^TapActionBlock)(NSInteger pageIndex ,NSInteger money ,NSString *key);

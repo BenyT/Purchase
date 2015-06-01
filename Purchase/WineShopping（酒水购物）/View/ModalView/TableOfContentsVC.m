@@ -10,11 +10,10 @@
 #import "TableOfContentsCell.h"
 #import "BALabel.h"
 #import "Header.h"
-@interface TableOfContentsVC ()<UITableViewDataSource,UITableViewDelegate>
+@interface TableOfContentsVC ()<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
 
 @property (weak ,nonatomic) UITableView *TableOfContentsTableView;
 
-@property (weak ,nonatomic) UIView *topView;
 @end
 
 @implementation TableOfContentsVC
@@ -130,7 +129,15 @@
 
 -(void)topLabelClick
 {
-    _topLabelBlock(_array);
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"确定要清空购物车吗？" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:nil];
+    [alert addButtonWithTitle:@"确定"];
+    [alert show];
+    
+}
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        _topLabelBlock(_array);
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

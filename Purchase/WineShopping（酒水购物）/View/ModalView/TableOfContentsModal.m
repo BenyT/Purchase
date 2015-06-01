@@ -8,6 +8,7 @@
 
 #import "TableOfContentsModal.h"
 #import "TableOfContentsVC.h"
+#import "Header.h"
 CGFloat const kFadeInAnimationDuration = 0.6;
 CGFloat const kTransformPart1AnimationDuration = 0.2;
 CGFloat const kTransformPart2AnimationDuration = 0.1;
@@ -60,7 +61,9 @@ CGFloat const kTransformPart2AnimationDuration = 0.1;
         _cview.alpha = 1;
         
         [UIView animateWithDuration:kFadeInAnimationDuration animations:^{
-            
+            self.viewController.view.alpha = 0;
+            _cview.alpha = 0;
+            self.viewController.topView.frame=(CGRect){0,kWindowHeight,kWindowWidth,0};
         }completion:^(BOOL finished)
          {
              [self cleanup];

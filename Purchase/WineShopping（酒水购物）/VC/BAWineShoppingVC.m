@@ -11,9 +11,9 @@
 #import "BARightTableView.h"
 #import "BADockCell.h"
 #import "BALabel.h"
-#import "Header.h"
 #import "BAImageView.h"
 #import "TableOfContentsModal.h"
+#import "Header.h"
 @interface BAWineShoppingVC ()<DockTavleViewDelegate,RightTableViewDelegate,TableOfContentsDelegate>
 
 @property (nonatomic ,strong) BAWineShoppingDockTavleView *dockTavleView;
@@ -71,6 +71,10 @@
     [rightTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.view addSubview:rightTableView];
     _rightTableView=rightTableView;
+    
+    
+    _reservationsVCDic=[@{@"name":@"散台",@"priceInt":@2300} mutableCopy];
+    
     
     
     _dockArray =[NSMutableArray array];
@@ -243,42 +247,42 @@
             for (int i=0; i<8; i++) {
                 if (i==0) {
                     NSMutableDictionary *dic1 =[NSMutableDictionary dictionary];
-                    dic1=[@{@"image":@"24.jpg",@"name":@"白俄罗斯鸡尾酒",@"money":@"238",@"Quantity":@"0",@"ProductID":@"z"} mutableCopy];
+                    dic1=[@{@"image":@"24.jpg",@"name":@"白俄罗斯鸡尾酒",@"money":@"238",@"Quantity":@"0",@"ProductID":@"zq"} mutableCopy];
                     [array addObject:dic1]; ;
                 }
                 if (i==1) {
                     NSMutableDictionary *dic1 =[NSMutableDictionary dictionary];
-                    dic1=[@{@"image":@"25.jpg",@"name":@"莫吉托",@"money":@"233",@"Quantity":@"0",@"ProductID":@"x"} mutableCopy];
+                    dic1=[@{@"image":@"25.jpg",@"name":@"莫吉托",@"money":@"233",@"Quantity":@"0",@"ProductID":@"xq"} mutableCopy];
                     [array addObject:dic1]; ;
                 }
                 if (i==2) {
                     NSMutableDictionary *dic1 =[NSMutableDictionary dictionary];
-                    dic1=[@{@"image":@"26.jpg",@"name":@"绝对柚惑",@"money":@"115",@"Quantity":@"0",@"ProductID":@"c"} mutableCopy];
+                    dic1=[@{@"image":@"26.jpg",@"name":@"绝对柚惑",@"money":@"115",@"Quantity":@"0",@"ProductID":@"cq"} mutableCopy];
                     [array addObject:dic1]; ;
                 }
                 if (i==3) {
                     NSMutableDictionary *dic1 =[NSMutableDictionary dictionary];
-                    dic1=[@{@"image":@"27.jpg",@"name":@"马蒂尼里",@"money":@"1580",@"Quantity":@"0",@"ProductID":@"v"} mutableCopy];
+                    dic1=[@{@"image":@"27.jpg",@"name":@"马蒂尼里",@"money":@"1580",@"Quantity":@"0",@"ProductID":@"vq"} mutableCopy];
                     [array addObject:dic1]; ;
                 }
                 if (i==4) {
                     NSMutableDictionary *dic1 =[NSMutableDictionary dictionary];
-                    dic1=[@{@"image":@"28.jpg",@"name":@"绝对甜蜜",@"money":@"138",@"Quantity":@"0",@"ProductID":@"b"} mutableCopy];
+                    dic1=[@{@"image":@"28.jpg",@"name":@"绝对甜蜜",@"money":@"138",@"Quantity":@"0",@"ProductID":@"bq"} mutableCopy];
                     [array addObject:dic1]; ;
                 }
                 if (i==5) {
                     NSMutableDictionary *dic1 =[NSMutableDictionary dictionary];
-                    dic1=[@{@"image":@"29.jpg",@"name":@"精致女士",@"money":@"138",@"Quantity":@"0",@"ProductID":@"h"} mutableCopy];
+                    dic1=[@{@"image":@"29.jpg",@"name":@"精致女士",@"money":@"138",@"Quantity":@"0",@"ProductID":@"hq"} mutableCopy];
                     [array addObject:dic1]; ;
                 }
                 if (i==6) {
                     NSMutableDictionary *dic1 =[NSMutableDictionary dictionary];
-                    dic1=[@{@"image":@"30.jpg",@"name":@"绝对柠檬",@"money":@"138",@"Quantity":@"0",@"ProductID":@"n"} mutableCopy];
+                    dic1=[@{@"image":@"30.jpg",@"name":@"绝对柠檬",@"money":@"138",@"Quantity":@"0",@"ProductID":@"nq"} mutableCopy];
                     [array addObject:dic1]; ;
                 }
                 if (i==7) {
                     NSMutableDictionary *dic1 =[NSMutableDictionary dictionary];
-                    dic1=[@{@"image":@"31.jpg",@"name":@"绝对野趣",@"money":@"138",@"Quantity":@"0",@"ProductID":@"m"} mutableCopy];
+                    dic1=[@{@"image":@"31.jpg",@"name":@"绝对野趣",@"money":@"138",@"Quantity":@"0",@"ProductID":@"mq"} mutableCopy];
                     [array addObject:dic1]; ;
                 }
                 
@@ -301,7 +305,7 @@
                 if(i==1)
                 {
                     NSMutableDictionary *dic1 =[NSMutableDictionary dictionary];
-                    dic1=[@{@"image":@"32.jpg",@"name":@"苹果、火龙果、西瓜、哈密瓜、杨桃（小）",@"money":@"89",@"Quantity":@"0",@"ProductID":@"ww"} mutableCopy];
+                    dic1=[@{@"image":@"32.jpg",@"name":@"苹果、火龙果、西瓜、哈密瓜、杨桃（小）",@"money":@"89",@"Quantity":@"0",@"ProductID":@"wwe"} mutableCopy];
                     [array addObject:dic1];
                 }
             }
@@ -327,11 +331,15 @@
     bottomView.backgroundColor=UIColorRGBA(29, 29, 29, 1);
     [self.view addSubview:bottomView];
     
-    BALabel *bottomLabel =[[BALabel alloc]initWithFrame:(CGRect){kWindowWidth-55-10,50/2-24/2,55,24}];
-    bottomLabel.text=@"请选购";
+    NSNumberFormatter *formatter =[[NSNumberFormatter alloc]init];
+    formatter.numberStyle=NSNumberFormatterDecimalStyle;
+    NSString *bottomLabelText =[NSString stringWithFormat:@"还差%@元",[formatter stringFromNumber:[NSNumber numberWithDouble:[_reservationsVCDic[@"priceInt"] integerValue]]]];
+    CGSize bottomLabelSize =[bottomLabelText sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:Font(15),NSFontAttributeName, nil]];
+    BALabel *bottomLabel =[[BALabel alloc]initWithFrame:(CGRect){kWindowWidth-(bottomLabelSize.width +20)-10,50/2-35/2,bottomLabelSize.width +20,35}];
+    bottomLabel.text=bottomLabelText;
     bottomLabel.textColor=[UIColor whiteColor];
     bottomLabel.textAlignment=NSTextAlignmentCenter;
-    bottomLabel.font=Font(13);
+    bottomLabel.font=Font(15);
     bottomLabel.backgroundColor=[UIColor lightGrayColor];
     bottomLabel.layer.masksToBounds=YES;
     bottomLabel.layer.cornerRadius=6;
@@ -389,8 +397,9 @@
 
 -(void)bottomLabelClick
 {
-    NSLog(@"跳转下一个控制器");
+   
 }
+
 -(void)quantity:(NSInteger)quantity money:(NSInteger)money key:(NSString *)key
 {
     NSInteger addend  =quantity *money;
@@ -410,14 +419,22 @@
     }
     if (totalSingularInt==0) {
         _totalSingular.hidden=YES;
+        
+        
+    }
+#warning 这里是判断当前购物车的价格是否低于预消费，如果不需要改成大于0 里面填写自己的按钮text
+    if (total <[_reservationsVCDic[@"priceInt"] integerValue]) {
         _bottomLabel.backgroundColor=[UIColor lightGrayColor];
         _bottomLabel.userInteractionEnabled=NO;
-        _bottomLabel.text=@"请选购";
+        NSNumberFormatter *formatter =[[NSNumberFormatter alloc]init];
+        formatter.numberStyle=NSNumberFormatterDecimalStyle;
+        NSString *bottomLabelText =[NSString stringWithFormat:@"还差%@元",[formatter stringFromNumber:[NSNumber numberWithDouble:[_reservationsVCDic[@"priceInt"] integerValue]-total]]];
+        _bottomLabel.text=bottomLabelText;
     }else
     {
         _bottomLabel.backgroundColor=[UIColor clearColor];
         _bottomLabel.userInteractionEnabled=YES;
-        _bottomLabel.text=@"去结算";
+        _bottomLabel.text=@"选好了";
     }
     _totalSingular.text=[NSString stringWithFormat:@"%ld",totalSingularInt];
     NSNumberFormatter *formatter =[[NSNumberFormatter alloc]init];

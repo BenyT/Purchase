@@ -10,4 +10,6 @@
 
 @interface BAWineShoppingVC : UIViewController
 
+@property (strong ,nonatomic)NSDictionary *reservationsVCDic;
+
 @end
