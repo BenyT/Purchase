@@ -501,7 +501,12 @@
                 }
                 
             }
-            
+            _bottomLabel.backgroundColor=[UIColor lightGrayColor];
+            _bottomLabel.userInteractionEnabled=NO;
+            NSNumberFormatter *formatter =[[NSNumberFormatter alloc]init];
+            formatter.numberStyle=NSNumberFormatterDecimalStyle;
+            NSString *bottomLabelText =[NSString stringWithFormat:@"还差%@元",[formatter stringFromNumber:[NSNumber numberWithDouble:[_reservationsVCDic[@"priceInt"] integerValue]]]];
+            _bottomLabel.text=bottomLabelText;
             [self.rightTableView reloadData];
             
         };
