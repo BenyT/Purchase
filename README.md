@@ -1,6 +1,5 @@
 # Purchase
 
-![(购物车)](https://github.com/Yexinglong/Purchase/blob/master/gouwuche.gif?raw=true)
 
 ##更新0.2
 *`整体代码与风格重新设计与重构`
